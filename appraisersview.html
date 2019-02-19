@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AIS | PACE</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../bower_components/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="../../dist/css/AdminSTR.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/styles.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="shortcut icon" href="../../Images/Fevicon/AIS_logo.gif">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.10/css/bootstrap-multiselect.css" />
+  <script type="text/javascript" src="bower_components/jquery/dist/canvasjs.min.js"></script>		
+ 
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <header class="main-header">
+    <a href="../../index.html" class="logo" id="companyLogo1">
+      <span class="logo-mini"><img id="ShortcutLogo" src="../../Images/AIS_Logo.gif" width="40px" alt=""/></img></span>
+      <span class="logo-lg"><img class="logoimage" src="../../Images/AIS_Logo.gif" width="120px" style="padding:0px 29px"></img></span>
+    </a>
+
+    <nav class="navbar navbar-static-top">
+      <a href="#" class="sidebar-toggle-bar" data-toggle="push-menu" role="button">
+        <span class="fa fa-th-list "></span>
+      </a><span class="fontPMS">&nbsp;&nbsp;Performance Management System</span>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Charu Mehta</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  Charu Mehta - Project Manager
+                  <small>Member since Nov. 2010</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 left_text-center">Roles
+                  </div>
+                  <!-- Select Admin Roles Here.. -->
+                  <div class="col-xs-8 text-center">
+                    <input  class="form-control" type="text" name="display" id="display" value="" list="list-display" placeholder="Select"/>
+                    <datalist id="list-display">
+                      <option>Admin Roles</option>
+                      <option>Users Roles</option>
+					  <option>HR Roles</option>
+                      <option>New Roles-1</option>
+					  <option>New Roles-2</option>
+                      <option>New Roles-3</option>
+					  <option>New Roles-4</option>
+                      <option>New Roles-5</option>
+                    </datalist>
+                </div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		  <script>
+		  $("#display").on('input',function(){
+           $( "#para" ).text($(this).val());
+            });
+          </script>
+		  
+		  <!-- Select Admin Roles Here.. -->
+                  <!-- <div class="col-xs-4 text-center">
+                    <a href="#">User</a>
+                  </div> -->
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="AISlogin.html" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button --
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-cog"></i></a>
+          </li> -->
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel --
+      <div class="user-panel">
+		<div class="pull-left info">
+          <p id="para"><i class="fa fa-circle text-success"></i>&nbsp;&nbsp;&nbsp;Admin</p> 
+        </div>
+      </div> 
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <!-- <li class="header">MAIN NAVIGATION</li> -->
+		<!-- Dashboard Starts Here -->
+        <li>
+          <a href="../../index.html">
+            <i class="fa fa-home"></i> <span>Home</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../../personalprofile.html">
+            <i class="fa fa-id-badge"></i> <span>Personal Profile</span>
+          </a>
+        </li>
+		<hr class="MenuDivider">
+        <li>
+          <a href="../../paceindex.html">
+            <i class="fa fa-home"></i> <span>PMS Home</span>
+          </a>
+        </li>
+		
+        <li class=" treeview">
+          <a href="#">
+            <i class="fa fa-balance-scale"></i> <span>Goal Settings</span>
+			<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          <ul class="treeview-menu treeview_menu_submenuLeftSection">
+            <li><a href="setgoal.html"><i class="fa fa-edit"></i> Set Goals</a></li>
+            <li class=""><a href="viewgoal.html"><i class="fa fa-eye"></i> View Goals</a></li>
+		  </ul>
+          </a>
+        </li>		
+		
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-trophy"></i> <span>Appraisal</span>
+			<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          <ul class="treeview-menu treeview_menu_submenuLeftSection">
+            <li class="active"><a href="selfappraisal.html"><i class="fa fa-id-card-o"></i> Appraisal 1</a></li>
+            <li><a href="employee-details/contact-details.html"><i class="fa fa-phone"></i> Appraisal 2</a></li>
+		  </ul>
+          </a>
+        </li>		
+		
+		
+		
+		<li>
+			<a href="viewgoal.html">
+            <i class="fa fa-eye"></i> <span>View Appraisal</span>
+          </a>
+        </li>
+		
+
+		<li>
+          <a href="#">
+            <i class="fa fa-group"></i> <span>Team</span>
+          </a>
+        </li>		
+		
+		<li>
+          <a href="#">
+            <i class="fa fa-group"></i> <span>HR Approved</span>
+          </a>
+        </li>		
+
+		<li>
+          <a href="#">
+            <i class="fa fa-bar-chart"></i> <span>Reports</span>
+          </a>
+        </li>		
+
+		<li>
+          <a href="#">
+            <i class="fa fa-thumbs-o-up"></i> <span>Performance Tracker</span>
+          </a>
+        </li>		
+
+		<li>
+          <a href="#">
+            <i class="fa fa-tv"></i> <span>Status Monitor</span>
+          </a>
+        </li>		
+
+		<li>
+          <a href="#">
+            <i class="fa fa-bar-chart"></i> <span>Analytics</span>
+          </a>
+        </li>		
+
+		<li>
+          <a href="moderation.html">
+            <i class="fa fa-balance-scale"></i> <span>Moderation</span>
+          </a>
+        </li>		
+
+
+    </section>
+			
+  </aside>
+  <!--Bottom Left Pop up Window Starts -->
+	<div id="myModal1" class="modal">
+		<div class="modal-content">
+			<div class="modal-body">
+				<span class="close" style="color:black;">&times;</span>
+				<div class="BottomInner">
+					<p><a href="#"><i class="fa fa-line-chart"></i></a></p>
+					<p><a href="#"><i class="fa fa-user-plus"></i></a></p>
+					<p><a href="#"><i class="fa fa-rocket"></i></a></p>
+					<p><a href="#"><i class="fa fa-share-alt"></i></a></p>
+					<p><a href="#"><i class="fa fa-calculator"></i></a></p>
+				</div>
+				<div class="BottomInner">
+					<p><a href="#"><i class="fa fa-crosshairs"></i></a></p>
+					<p><a href="#"><i class="fa fa-cube"></i></a></p>
+					<p><a href="#"><i class="fa fa-comments"></i></a></p>
+					<p><a href="#"><i class="fa fa-life-saver"></i></a></p>
+					<p><a href="#"><i class="fa fa-map-marker"></i></a></p>
+				</div>
+				<div class="BottomInner">
+					<p><a href="#"><i class="fa fa-retweet"></i></a></p>
+					<p><a href="#"><i class="fa fa-tasks"></i></a></p>
+					<p><a href="#"><i class="fa fa-tty"></i></a></p>
+					<p><a href="#"><i class="fa fa-file-picture-o"></i></a></p>
+					<p><a href="#"><i class="fa fa-cc-paypal"></i></a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Bottom Left Pop up Window Ends -->
+	
+	<div class="content-wrapper" style="height:auto;">
+		<section class="content-header">
+		  <h1>View Goal</h1>
+		  <ol class="breadcrumb">
+			<li class="active"><i class="fa fa-dashboard"></i> View Goal</li>
+		  </ol>
+		</section>
+		<div><p></p></div>	
+		<section class="content">
+			<hr class="hr0">
+			<div class="row">
+				<div class="col-md-12 col-sm-6 col-xs-12">
+					<div class="box">
+						<div class="box-body BottomDiv" id="style-7" style="height:75vh !important;">
+							<button class="collapsible"><strong>Appraiser 1</strong></button>
+							<div class="DivCcontent">
+							
+                 <div class="box-body BottomDiv" id="style-7">
+                 	<div class="box-footer" id="style-7" style="overflow:auto;">
+							   
+                 <div class="tab">
+        				  <button class="tablinks active" onclick="openCity(event, 'goal')">Goal</button>
+        				  <button class="tablinks" onclick="openCity(event, 'competency')">Competency</button>
+        				  <button class="tablinks" onclick="openCity(event, 'tni')">TNI</button>
+        				  <button class="tablinks" onclick="openCity(event, 'r&r')">Extras</button>
+        				</div>
+
+				      <div id="goal" class="tabcontent" style="display: block;">
+					  <form action="" id="myForm">
+		         	<table id="" class="table table-bordered table-striped d-format" style="border:1px solid black !important;">
+              <tbody><tr>
+                <td colspan="11" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION I - GOALS/OBJECTIVES</b></td>
+              </tr>
+              <tr>
+                <td colspan="11" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">Rating (1-5) Annual Review&nbsp;&nbsp;&nbsp;
+                <span style="font-size:11px; font-weight:100;">(Total Weightage = 80)</span>
+                <button type="button" class="btn" id="infobtn" data-toggle="modal" data-target="#information"><i class="fa fa-info-circle" aria-hidden="true"></i></button></b></td>
+                <div class="modal fade" id="information">
+                    <div class="modal-dialog" id="dialoginfo">
+                    <div class="modal-content">          
+                      <div class="modal-body" style="overflow-x: unset;overflow-y: unset; height:313px;">
+                      <p style="text-align:justify; margin: 4%;font-weight: 500;">For the upcoming appraisal period, list and weight the major objective/goal to be accomplished by the employee during the appraisal weightage of this section should be 80. Distribute the weights so that the combined weights of all objects equals to the overall weights for the section. Objectives/Goal for section head and above should be framed considering the relevant financial, customer, process, and people development & innovation. Objectives should be stated in specific and measurable terms (including timeliness), plan vs actual (measurable) is compared within timeline.<br/>Please list out not more than seven key job objective/goals set by you and your appraiser for the year, which significantly impact the business performance of the company and carry out a self-assessment in term of achievement/fulfillment.</p>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
+                      
+              </tr>
+              <tr align="center" class="text-center TableHeading" style="background-color: #dddddd;">
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Goals</b></td>
+                <td colspan="2"><b style="font-size:14px;">Measurable</b></td>
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Timeline</b></td>
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Weightage (a)</b></td>
+                <td colspan="6"><b style="font-size:14px;">Annual Review</b></td>
+              </tr>
+              <tr align="center" class="text-center TableHeading" style="background-color: #dddddd;">
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Plan</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Actual</b></td>               
+
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Self Assessment (b)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Total Self Assessment Score (a*b)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Appraiser Assessment (x)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Total Appraiser Assessment Score (x*a)</b></td>
+                  <td style="vertical-align:middle;" colspan="2"><b style="font-size:14px;">Remarks</b></td>
+              </tr>
+              </tbody><tbody class="TableRow">
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Financial</b></td>                 
+                </tr>
+                <tr>
+                  <td>Transportation Cost within Budget</td>
+                  <td>0%</td>
+                  <td>0%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+					<a class="" href="#popup1">
+						<textarea rows="1" name="popup1" style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea>
+					</a>
+					<div id="popup1" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save" onclick="MakeIt(this.form);">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</a>
+							<div>
+								<textarea rows="4" name="popupcopy1" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>
+					
+					<!--<textarea title="" style="height:20px;overflow-y: hidden; padding: 0px;font-size: 10px;">
+						Tracking Acknowledgement from all Customer Tracking Acknowledgement from all Customer Tracking Acknowledgement from all Customer
+					</textarea>-->
+				</td>
+                </tr>
+                <tr>
+                  <td>Tracking Acknowledgement from all Customer</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>3</td>
+                  <td>15</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+				  	<a class="" href="#popup2">
+						<textarea rows="1" name="popup2" style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea>
+					</a>
+					<div id="popup2" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea rows="4" name="popupcopy2" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>
+				  <!--<textarea class="form-control" style="height:20px;overflow-y: hidden; padding:0px;font-size: 10px;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>-->
+				  
+				  </td>
+                </tr>               
+                <tr>
+                  <td>Transportation Cost Saving Vs Budget</td>
+                  <td>90 Lakhs</td>
+                  <td>99.3 Lakhs</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+				  	<a class="" href="#popup3">
+						<textarea rows="1" name="popup3" style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea>
+					</a>
+					<div id="popup3" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea rows="4" name="popupcopy3" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>				  
+				  </td>
+                </tr>               
+                
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Customer</b></td>
+                </tr>
+                <tr>
+                  <td>Customer Line Support</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Daily</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+					<a class="" href="#popup4">
+						<textarea name="popup4" rows="1"style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea>
+					</a>
+					<div id="popup4" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea rows="4" name="popupcopy4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>
+				  
+				  </td>
+                </tr>
+                <tr>
+                  <td>To Sustain Customerwise (Delivery Performance Rating-SDP)</td>
+                  <td>100%</td>
+                  <td>&gt;99%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+				  	<a class="" href="#popup5"><textarea name="popup5" rows="1"style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea></a>
+					<div id="popup5" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea rows="4" name="popupcopy5" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>				  
+				  </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Process</b></td>
+                </tr>
+                <tr>
+                  <td>To Reduce Transit Breakages-Archieve Zero</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>20</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+				  	<a class="" href="#popup6"><textarea name="popup6" rows="1"style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea></a>
+					<div id="popup6" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea name="popupcopy6" rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>				  
+				  </td>
+                </tr>
+                <tr>
+                  <td>To maintain ":NO NCR":- Internal Audit Findings</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">				  	
+					<a class="" href="#popup7"><textarea name="popup7" rows="1"style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea></a>
+					<div id="popup7" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea name="popupcopy7" rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>
+					</td>
+                </tr>
+                <tr>
+                  <td>To Reduce Invoice Cancellation to Minimum "0"</td>
+                  <td>0</td>
+                  <td>20</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>20</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+				  	<a class="" href="#popup8"><textarea name="popup8" rows="1"style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea></a>
+					<div id="popup8" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea name="popupcopy8" rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>				  
+				  </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">People Development &amp; Innovation</b></td>
+                </tr>
+                <tr>
+                  <td>Training and Kaizens for Logistics (Customer portal knowledge, BPF, SOP, One point Lesson etc.,)</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>Yearly</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+				  	<a class="" href="#popup9"><textarea name="popup9" rows="1"style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea></a>
+					<div id="popup9" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea name="popupcopy9" rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>				  
+				  </td>
+                </tr>
+                <tr>
+                  <td>5S and Safety Awarness</td>
+                  <td>100%</td>
+                  <td>90%</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>25</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+				  	<a class="" href="#popup10"><textarea name="popup10" rows="1"style="height:20px;overflow-y: hidden; padding:0px;" onclick="MakeIt(this.form);"></textarea></a>
+					<div id="popup10" class="overlay">
+						<div class="popup">
+							<a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<div>
+								<textarea name="popupcopy10" rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;" onchange="MakeIt(this.form);"></textarea>
+							</div>
+						</div>
+					</div>				  
+				  </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"></td>
+                </tr>               
+                <tr class="text-center" style="background: #e2e2e2;">
+                  <td colspan="4" style="font-size:17px; font-weight: 700;">Total</td>
+                  <td>80</td>
+                  <td>43</td>
+                  <td>350</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td colspan="2">0</td>
+                </tr>
+              </tbody>
+              </table>
+			  </form>
+</div>
+
+<div id="competency" class="tabcontent">
+  <table id="" class="table table-bordered table-striped d-format" <tr="">
+                  <tbody><tr><td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION II - PERFORMANCE FACTORS</b></td>
+                </tr>
+                <tr>
+                  <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">Rating (1-5) Annual Review</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Attribute</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Weightage (a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Self Assessment (b)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Self Assessment Score (a*b)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Appraiser Assessment (x)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Appraiser Assessment Score (x*a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Reviewer Assessment (y)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Reviewer Assessment Score (y*a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Examples</b></td>
+                </tr>
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Creating Personal Execellance</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Using 3PL with low frt cost</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Timely Delivery to customer</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>apply 4W1H problem solving technique</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Driving Result Through Team</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Forming SGA / Brain storming session for problem solving.</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Displaying and ensuring One Point lesson, SOP, BPF for correct documentation</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Succeeding With Others</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Getting customer supporta and relation</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Collaboration with CFT and Transporters etc..</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Technical Capabilities</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Applying Logistics Techniques</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Transportation Cost working and arriving budget per PC.</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Customer portal knowledge, internal Audit-coordination</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+                <tr class="TableHeading text-center" align="center" style="background: #e2e2e2;">
+                  <td style="vertical-align:middle; align:center; font-size:17px; font-weight: 700;" "="">Total</td>
+                  <td style="vertical-align:middle; align:center">20</td>
+                  <td style="vertical-align:middle; align:center">46</td>
+                  <td style="vertical-align:middle; align:center">92</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center"><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td></td>
+                </tr>
+                
+              </tbody></table>
+</div>
+
+<div id="tni" class="tabcontent">
+     <div class="col-xs-12">
+        <div class="">
+            <div class="table-responsive no-padding">
+              <table class="table table-bordered table-striped d-format">
+                  <tbody>
+                    <tr>
+                      <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION III - DEVELOPMENT NEEDS</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Category</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Sub-Category</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">EmployeeTNI</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">AppraiserTNI</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Rating</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Remarks</b></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+				          <td>Time Management</td>
+                  <td>1</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Team Management</td>
+                  <td>5</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Financial Financial</td>
+                  <td>4</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Time Management</td>
+                  <td>3</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+			  <button type="button" class="btn btn-primary pull-right proceed-btn">Save & Next</button>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+  	</div>
+
+						<div id="r&r" class="tabcontent">
+						   <table class="table table-bordered table-striped d-format">
+                  <tbody>
+                    <tr>
+                      <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION IV - Extras</b></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align:middle; text-align: center"><b style="font-size:14px;">Rewards</b></td>
+                  <td colspan="2" style="vertical-align:middle; text-align: center"><b style="font-size:14px;">Attendance</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Monthly Activity</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Category of Rewards</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">% of Absentee</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">% of Attended</b></td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+	
+      					</div>							
+								<div class="box-footer" >
+									<div style="float:right;">
+										<input type="checkbox" disabled>&nbsp;&nbsp;<label><p style="color:red;">Agree</p></label>
+									</div>
+								</div>							
+							</div>
+
+
+		<hr class="MenuDivider" style="margin-top: 0px !important; margin-bottom: 0px !important;">
+		<button class="collapsible"><strong>Appraiser 2</strong></button>
+				<div class="DivCcontent">
+
+       <div class="box-body BottomDiv" id="style-7">
+						  <div class="tab1">
+                  <button class="tablinks1 active" onclick="openCity1(event, 'goal1')">Goal</button>
+                  <button class="tablinks1" onclick="openCity1(event, 'competency1')">Competency</button>
+                  <button class="tablinks1" onclick="openCity1(event, 'tni1')">TNI</button>
+                  <button class="tablinks1" onclick="openCity1(event, 'r&r1')">Extras</button>
+                </div>
+
+              <div id="goal1" class="tabcontent1" style="display: block;">
+              <table id="" class="table table-bordered table-striped d-format" style="border:1px solid black !important;">
+              <tbody><tr>
+                <td colspan="11" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION I - GOALS/OBJECTIVES</b></td>
+              </tr>
+              <tr>
+                <td colspan="11" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">Rating (1-5) Annual Review&nbsp;&nbsp;&nbsp;
+                <span style="font-size:11px; font-weight:100;">(Total Weightage = 80)</span>
+                <button type="button" class="btn" id="infobtn" data-toggle="modal" data-target="#information"><i class="fa fa-info-circle" aria-hidden="true"></i></button></b></td>
+                <div class="modal fade" id="information">
+                    <div class="modal-dialog" id="dialoginfo">
+                    <div class="modal-content">          
+                      <div class="modal-body" style="overflow-x: unset;overflow-y: unset; height:313px;">
+                      <p style="text-align:justify; margin: 4%;font-weight: 500;">For the upcoming appraisal period, list and weight the major objective/goal to be accomplished by the employee during the appraisal weightage of this section should be 80. Distribute the weights so that the combined weights of all objects equals to the overall weights for the section. Objectives/Goal for section head and above should be framed considering the relevant financial, customer, process, and people development & innovation. Objectives should be stated in specific and measurable terms (including timeliness), plan vs actual (measurable) is compared within timeline.<br/>Please list out not more than seven key job objective/goals set by you and your appraiser for the year, which significantly impact the business performance of the company and carry out a self-assessment in term of achievement/fulfillment.</p>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
+                      
+              </tr>
+              <tr align="center" class="text-center TableHeading" style="background-color: #dddddd;">
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Goals</b></td>
+                <td colspan="2"><b style="font-size:14px;">Measurable</b></td>
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Timeline</b></td>
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Weightage (a)</b></td>
+                <td colspan="6"><b style="font-size:14px;">Annual Review</b></td>
+              </tr>
+              <tr align="center" class="text-center TableHeading" style="background-color: #dddddd;">
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Plan</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Actual</b></td>               
+
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Self Assessment (b)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Total Self Assessment Score (a*b)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Appraiser Assessment (x)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Total Appraiser Assessment Score (x*a)</b></td>
+                  <td style="vertical-align:middle;" colspan="2"><b style="font-size:14px;">Remarks</b></td>
+              </tr>
+              </tbody><tbody class="TableRow">
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Financial</b></td>                 
+                </tr>
+                <tr>
+                  <td>Transportation Cost within Budget</td>
+                  <td>0%</td>
+                  <td>0%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+          <a class="" href="#popup1"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup1" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          
+        </td>
+                </tr>
+                <tr>
+                  <td>Tracking Acknowledgement from all Customer</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>3</td>
+                  <td>15</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup2"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup2" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          </td>
+                </tr>               
+                <tr>
+                  <td>Transportation Cost Saving Vs Budget</td>
+                  <td>90 Lakhs</td>
+                  <td>99.3 Lakhs</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup3"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup3" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Customer</b></td>
+                </tr>
+                <tr>
+                  <td>Customer Line Support</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Daily</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+          <a class="" href="#popup4"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup4" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          </td>
+                </tr>
+                <tr>
+                  <td>To Sustain Customerwise (Delivery Performance Rating-SDP)</td>
+                  <td>100%</td>
+                  <td>&gt;99%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup5"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup5" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Process</b></td>
+                </tr>
+                <tr>
+                  <td>To Reduce Transit Breakages-Archieve Zero</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>20</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup6"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup6" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>
+                <tr>
+                  <td>To maintain ":NO NCR":- Internal Audit Findings</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">            
+          <a class="" href="#popup7"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup7" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          </td>
+                </tr>
+                <tr>
+                  <td>To Reduce Invoice Cancellation to Minimum "0"</td>
+                  <td>0</td>
+                  <td>20</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>20</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup8"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup8" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">People Development &amp; Innovation</b></td>
+                </tr>
+                <tr>
+                  <td>Training and Kaizens for Logistics (Customer portal knowledge, BPF, SOP, One point Lesson etc.,)</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>Yearly</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup9"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup9" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>
+                <tr>
+                  <td>5S and Safety Awarness</td>
+                  <td>100%</td>
+                  <td>90%</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>25</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup10"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup10" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"></td>
+                </tr>               
+                <tr class="text-center" style="background: #e2e2e2;">
+                  <td colspan="4" style="font-size:17px; font-weight: 700;">Total</td>
+                  <td>80</td>
+                  <td>43</td>
+                  <td>350</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td colspan="2">0</td>
+                </tr>
+              </tbody>
+              </table>
+</div>
+
+<div id="competency1" class="tabcontent1">
+  <table id="" class="table table-bordered table-striped d-format" <tr="">
+                  <tbody><tr><td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION II - PERFORMANCE FACTORS</b></td>
+                </tr>
+                <tr>
+                  <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">Rating (1-5) Annual Review</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Attribute</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Weightage (a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Self Assessment (b)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Self Assessment Score (a*b)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Appraiser Assessment (x)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Appraiser Assessment Score (x*a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Reviewer Assessment (y)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Reviewer Assessment Score (y*a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Examples</b></td>
+                </tr>
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Creating Personal Execellance</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Using 3PL with low frt cost</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Timely Delivery to customer</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>apply 4W1H problem solving technique</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Driving Result Through Team</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Forming SGA / Brain storming session for problem solving.</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Displaying and ensuring One Point lesson, SOP, BPF for correct documentation</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Succeeding With Others</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Getting customer supporta and relation</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Collaboration with CFT and Transporters etc..</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Technical Capabilities</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Applying Logistics Techniques</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Transportation Cost working and arriving budget per PC.</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Customer portal knowledge, internal Audit-coordination</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+                <tr class="TableHeading text-center" align="center" style="background: #e2e2e2;">
+                  <td style="vertical-align:middle; align:center; font-size:17px; font-weight: 700;" "="">Total</td>
+                  <td style="vertical-align:middle; align:center">20</td>
+                  <td style="vertical-align:middle; align:center">46</td>
+                  <td style="vertical-align:middle; align:center">92</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center"><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td></td>
+                </tr>
+                
+              </tbody></table>
+</div>
+
+<div id="tni1" class="tabcontent1">
+     <div class="col-xs-12">
+        <div class="">
+            <div class="table-responsive no-padding">
+              <table class="table table-bordered table-striped d-format">
+                  <tbody>
+                    <tr>
+                      <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION III - DEVELOPMENT NEEDS</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Category</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Sub-Category</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">EmployeeTNI</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">AppraiserTNI</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Rating</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Remarks</b></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Time Management</td>
+                  <td>1</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Team Management</td>
+                  <td>5</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Financial Financial</td>
+                  <td>4</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Time Management</td>
+                  <td>3</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+        <button type="button" class="btn btn-primary pull-right proceed-btn">Save & Next</button>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+    </div>
+
+            <div id="r&r1" class="tabcontent1">
+               <table class="table table-bordered table-striped d-format">
+                  <tbody>
+                    <tr>
+                      <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION IV - Extras</b></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align:middle; text-align: center"><b style="font-size:14px;">Rewards</b></td>
+                  <td colspan="2" style="vertical-align:middle; text-align: center"><b style="font-size:14px;">Attendance</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Monthly Activity</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Category of Rewards</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">% of Absentee</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">% of Attended</b></td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>      					
+        </div>							
+								<div class="box-footer" >
+									<div style="float:right;">
+										<input type="checkbox" disabled>&nbsp;&nbsp;<label><p style="color:red;">Agree</p></label>
+									</div>
+								</div>							
+							</div>
+
+
+		<hr class="MenuDivider" style="margin-top: 0px !important; margin-bottom: 0px !important;">
+			<button class="collapsible"><strong>Appraiser 3</strong></button>
+			<div class="DivCcontent">
+				<div class="box-body BottomDiv" id="style-7">
+              <div class="tab2">
+                  <button class="tablinks2 active" onclick="openCity2(event, 'goal2')">Goal</button>
+                  <button class="tablinks2" onclick="openCity2(event, 'competency2')">Competency</button>
+                  <button class="tablinks2" onclick="openCity2(event, 'tni2')">TNI</button>
+                  <button class="tablinks2" onclick="openCity2(event, 'r&r2')">Extras</button>
+                </div>
+
+              <div id="goal2" class="tabcontent2" style="display: block;">
+              <table id="" class="table table-bordered table-striped d-format" style="border:1px solid black !important;">
+              <tbody><tr>
+                <td colspan="11" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION I - GOALS/OBJECTIVES</b></td>
+              </tr>
+              <tr>
+                <td colspan="11" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">Rating (1-5) Annual Review&nbsp;&nbsp;&nbsp;
+                <span style="font-size:11px; font-weight:100;">(Total Weightage = 80)</span>
+                <button type="button" class="btn" id="infobtn" data-toggle="modal" data-target="#information"><i class="fa fa-info-circle" aria-hidden="true"></i></button></b></td>
+                <div class="modal fade" id="information">
+                    <div class="modal-dialog" id="dialoginfo">
+                    <div class="modal-content">          
+                      <div class="modal-body" style="overflow-x: unset;overflow-y: unset; height:313px;">
+                      <p style="text-align:justify; margin: 4%;font-weight: 500;">For the upcoming appraisal period, list and weight the major objective/goal to be accomplished by the employee during the appraisal weightage of this section should be 80. Distribute the weights so that the combined weights of all objects equals to the overall weights for the section. Objectives/Goal for section head and above should be framed considering the relevant financial, customer, process, and people development & innovation. Objectives should be stated in specific and measurable terms (including timeliness), plan vs actual (measurable) is compared within timeline.<br/>Please list out not more than seven key job objective/goals set by you and your appraiser for the year, which significantly impact the business performance of the company and carry out a self-assessment in term of achievement/fulfillment.</p>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
+                      
+              </tr>
+              <tr align="center" class="text-center TableHeading" style="background-color: #dddddd;">
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Goals</b></td>
+                <td colspan="2"><b style="font-size:14px;">Measurable</b></td>
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Timeline</b></td>
+                <td rowspan="2" style="vertical-align:middle;"><b style="font-size:14px;">Weightage (a)</b></td>
+                <td colspan="6"><b style="font-size:14px;">Annual Review</b></td>
+              </tr>
+              <tr align="center" class="text-center TableHeading" style="background-color: #dddddd;">
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Plan</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Actual</b></td>               
+
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Self Assessment (b)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Total Self Assessment Score (a*b)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Appraiser Assessment (x)</b></td>
+                  <td style="vertical-align:middle;"><b style="font-size:14px;">Total Appraiser Assessment Score (x*a)</b></td>
+                  <td style="vertical-align:middle;" colspan="2"><b style="font-size:14px;">Remarks</b></td>
+              </tr>
+              </tbody><tbody class="TableRow">
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Financial</b></td>                 
+                </tr>
+                <tr>
+                  <td>Transportation Cost within Budget</td>
+                  <td>0%</td>
+                  <td>0%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+          <a class="" href="#popup1"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup1" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          
+        </td>
+                </tr>
+                <tr>
+                  <td>Tracking Acknowledgement from all Customer</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>3</td>
+                  <td>15</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup2"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup2" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          </td>
+                </tr>               
+                <tr>
+                  <td>Transportation Cost Saving Vs Budget</td>
+                  <td>90 Lakhs</td>
+                  <td>99.3 Lakhs</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup3"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup3" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Customer</b></td>
+                </tr>
+                <tr>
+                  <td>Customer Line Support</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Daily</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+          <a class="" href="#popup4"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup4" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          </td>
+                </tr>
+                <tr>
+                  <td>To Sustain Customerwise (Delivery Performance Rating-SDP)</td>
+                  <td>100%</td>
+                  <td>&gt;99%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup5"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup5" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">Process</b></td>
+                </tr>
+                <tr>
+                  <td>To Reduce Transit Breakages-Archieve Zero</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>20</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup6"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup6" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>
+                <tr>
+                  <td>To maintain ":NO NCR":- Internal Audit Findings</td>
+                  <td>100%</td>
+                  <td>100%</td>
+                  <td>Monthly</td>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>50</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">            
+          <a class="" href="#popup7"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup7" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>
+          </td>
+                </tr>
+                <tr>
+                  <td>To Reduce Invoice Cancellation to Minimum "0"</td>
+                  <td>0</td>
+                  <td>20</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>20</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup8"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup8" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"><b style="font-size: 14px;">People Development &amp; Innovation</b></td>
+                </tr>
+                <tr>
+                  <td>Training and Kaizens for Logistics (Customer portal knowledge, BPF, SOP, One point Lesson etc.,)</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>Yearly</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>40</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup9"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup9" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>
+                <tr>
+                  <td>5S and Safety Awarness</td>
+                  <td>100%</td>
+                  <td>90%</td>
+                  <td>Monthly</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>25</td>
+                  <td></td>
+                  <td>0</td>
+                  <td colspan="2">
+            <a class="" href="#popup10"><textarea rows="1"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></a>
+          <div id="popup10" class="overlay">
+            <div class="popup">
+              <a class="close" href="#" data-toggle="tooltip" title="Save"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+              <div>
+                <textarea rows="4" style="margin: 0px; width: 95%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+              </div>
+            </div>
+          </div>          
+          </td>
+                </tr>               
+                <tr>
+                  <td colspan="11"></td>
+                </tr>               
+                <tr class="text-center" style="background: #e2e2e2;">
+                  <td colspan="4" style="font-size:17px; font-weight: 700;">Total</td>
+                  <td>80</td>
+                  <td>43</td>
+                  <td>350</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td colspan="2">0</td>
+                </tr>
+              </tbody>
+              </table>
+</div>
+
+<div id="competency2" class="tabcontent2">
+  <table id="" class="table table-bordered table-striped d-format" <tr="">
+                  <tbody><tr><td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION II - PERFORMANCE FACTORS</b></td>
+                </tr>
+                <tr>
+                  <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">Rating (1-5) Annual Review</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Attribute</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Weightage (a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Self Assessment (b)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Self Assessment Score (a*b)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Appraiser Assessment (x)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Appraiser Assessment Score (x*a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Reviewer Assessment (y)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Total Reviewer Assessment Score (y*a)</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Examples</b></td>
+                </tr>
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Creating Personal Execellance</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Using 3PL with low frt cost</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Timely Delivery to customer</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>apply 4W1H problem solving technique</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Driving Result Through Team</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Forming SGA / Brain storming session for problem solving.</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Displaying and ensuring One Point lesson, SOP, BPF for correct documentation</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Succeeding With Others</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Getting customer supporta and relation</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Collaboration with CFT and Transporters etc..</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+                
+                <tr>
+                  <td colspan="10">
+                    <b style="font-size: 14px;">Technical Capabilities</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Applying Logistics Techniques</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Transportation Cost working and arriving budget per PC.</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>
+                <tr>
+                  <td>Customer portal knowledge, internal Audit-coordination</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>0</td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td><input type="text" class="form-control" style="height: 20px;"></td>
+                </tr>               
+                <tr class="TableHeading text-center" align="center" style="background: #e2e2e2;">
+                  <td style="vertical-align:middle; align:center; font-size:17px; font-weight: 700;" "="">Total</td>
+                  <td style="vertical-align:middle; align:center">20</td>
+                  <td style="vertical-align:middle; align:center">46</td>
+                  <td style="vertical-align:middle; align:center">92</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center">0</td>
+                  <td style="vertical-align:middle; align:center"><input type="text" class="form-control" style="height: 20px;"></td>
+                  <td></td>
+                </tr>
+                
+              </tbody></table>
+</div>
+
+<div id="tni2" class="tabcontent2">
+     <div class="col-xs-12">
+        <div class="">
+            <div class="table-responsive no-padding">
+              <table class="table table-bordered table-striped d-format">
+                  <tbody>
+                    <tr>
+                      <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION III - DEVELOPMENT NEEDS</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Category</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Sub-Category</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">EmployeeTNI</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">AppraiserTNI</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Rating</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Remarks</b></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Time Management</td>
+                  <td>1</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Team Management</td>
+                  <td>5</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Financial Financial</td>
+                  <td>4</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Financial/Technical</td>
+                  <td>Financial</td>
+                  <td>Communication Skills</td>
+                  <td>Time Management</td>
+                  <td>3</td>
+                  <td><textarea rows="1" style="width: 100%;"style="height:20px;overflow-y: hidden; padding:0px;"></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+        <button type="button" class="btn btn-primary pull-right proceed-btn">Save & Next</button>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+    </div>
+
+            <div id="r&r2" class="tabcontent2">
+               <table class="table table-bordered table-striped d-format">
+                  <tbody>
+                    <tr>
+                      <td colspan="9" class="text-center TableHeading" style="vertical-align:middle;"><b style="font-size:14px;">SECTION IV - Extras</b></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="vertical-align:middle; text-align: center"><b style="font-size:14px;">Rewards</b></td>
+                  <td colspan="2" style="vertical-align:middle; text-align: center"><b style="font-size:14px;">Attendance</b></td>
+                </tr>
+                <tr class="TableHeading" align="center" style="background-color: #dddddd !important;">
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Monthly Activity</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">Category of Rewards</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">% of Absentee</b></td>
+                  <td style="vertical-align:middle; align:center"><b style="font-size:14px;">% of Attended</b></td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+                <tr>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>AHJBBBNDJGHJ</td>
+                  <td>56%</td>
+                  <td>98%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>                
+        </div>
+								<div class="box-footer" >
+									<div style="float:right;">
+										<input type="checkbox" disabled>&nbsp;&nbsp;<label><p style="color:red;">Agree</p></label>
+									</div>
+								</div>							
+							</div>
+							
+							<hr class="MenuDivider" style="margin-top: 0px !important; margin-bottom: 0px !important;">							
+							<button class="collapsible"><strong>Final Appraiser</strong></button>
+							<div class="DivCcontent">
+							<textarea class="form-control" rows="6" placeholder="Enter ..."style="height:20px;overflow-y: hidden; padding:0px;"></textarea>
+							<!--<p>Performance management system is the systematic approach to measure the performance of employees. It is a process through which the organization aligns their mission, goals and objectives with available resources and systems to set the priorities. Later, performance management system reflects the individual performance or the accomplishment of an employee, which evaluates and keeps track of all the employees and eventually result in the success of the organization.
+								Why do we need this process?
+								It supports to provide data to find the skills and knowledge gaps of employees in order to improvise them through trainings, coaching and mentoring systems.
+								It motivates employees to take new challenges and innovate through structure process.
+								It provides new opportunities to employees for their growth and development in their professional careers
+								It defuses the grievances and conflicts among team members through proper performance evaluation system.
+								It assesses the employee’s performance fairly and accurately against the performance targets and standards.
+								For the upcoming appraisal period, list and weight the major objective/goal to be accomplished by the employee during the appraisal weightage of this section should be 80. Distribute the weights so that the combined weights of all objects equals to the overall weights for the section. Objectives/Goal for section head and above should be framed considering the relevant financial, customer, process, and people development & innovation. Objectives should be stated in specific and measurable terms (including timeliness), plan vs actual (measurable) is compared within timeline.
+							</p>-->
+								<div class="box-footer" >
+									<div style="float:right;">
+										<input type="checkbox" id="myCheck" onclick="myCheckFunction()">&nbsp;&nbsp;<label><p id="pColor" style="color:red;">Agree</p></label>
+									</div>
+								</div>
+							</div>						  
+							
+<!--							<div class="box-footer" style="border:2px solid #d2d6de;">
+								<div style="float:right;">
+									<input type="checkbox">&nbsp;&nbsp;Agree
+								</div>
+							</div>-->
+					  </div>
+					  
+					</div>
+				</div>
+		</section>
+	</div>
+
+  </div>
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+   <img class="logoimage" src="../../Images/STRATEMIS LOGO Final-041.png" width="130px">
+    </div>
+    &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear());</script>  <a href="">Stratemis</a>. All rights
+    reserved.	&nbsp;<strong><small>Version 1.1.0</small></strong>
+  </footer>
+
+  <!-- Control Sidebar -->
+  
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/demo.js"></script>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+function openCity1(evt, cityName) {
+  var i, tabcontent1, tablinks1;
+  tabcontent1 = document.getElementsByClassName("tabcontent1");
+  for (i = 0; i < tabcontent1.length; i++) {
+    tabcontent1[i].style.display = "none";
+  }
+  tablinks1 = document.getElementsByClassName("tablinks1");
+  for (i = 0; i < tablinks1.length; i++) {
+    tablinks1[i].className = tablinks1[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+function openCity2(evt, cityName) {
+  var i, tabcontent2, tablinks2;
+  tabcontent2 = document.getElementsByClassName("tabcontent2");
+  for (i = 0; i < tabcontent2.length; i++) {
+    tabcontent2[i].style.display = "none";
+  }
+  tablinks2 = document.getElementsByClassName("tablinks2");
+  for (i = 0; i < tablinks2.length; i++) {
+    tablinks2[i].className = tablinks2[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+  
+  
+  
+  $(document).ready(function () {
+          if (!$.browser.webkit) {
+              $('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
+          }
+      });
+  
+</script>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+
+function myCheckFunction() 
+{
+  var checkBox = document.getElementById("myCheck");
+  var pColor = document.getElementById("pColor")
+  if (checkBox.checked == true)
+  {
+	document.getElementById("pColor").style.color="green";
+  } 
+  else 
+  {
+     document.getElementById("pColor").style.color="red";
+  }
+}
+
+</script>
+
+
+<script language="JavaScript">
+	function MakeIt(form)
+	{
+		var i;
+		var txt, txt1;
+		for (i=1;i<=10;i++)
+		{
+			txt="popupcopy"+i;
+			txt1="popup"+i;
+			var x = document.getElementById("myForm").elements.namedItem(txt).value;
+			document.getElementById("myForm").elements.namedItem(txt1).value = x;
+		}
+	}
+</script>
+
+</body>
+</html>
